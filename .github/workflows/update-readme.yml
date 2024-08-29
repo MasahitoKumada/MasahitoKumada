@@ -6,6 +6,7 @@ on:
       - main
   schedule:
     - cron: '0 0 * * *'  # 毎日0:00に実行
+  workflow_dispatch:  # 手動実行を可能にするトリガー
 
 jobs:
   update-readme:
@@ -16,7 +17,7 @@ jobs:
 
       - name: Generate GitHub Stats
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MANAGE_PROFILE }}
         run: |
           curl -H "Authorization: token $GITHUB_TOKEN" \
           -s "https://github-readme-stats.vercel.app/api?username=MasahitoKumada&show_icons=true&locale=ja&theme=chartreuse-dark&count_private=true" \
