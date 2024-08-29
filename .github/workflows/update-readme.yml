@@ -19,13 +19,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.MANAGE_PROFILE }}
         run: |
+          # GitHub Stats and Trophy URLs
+          LANGS_URL="https://github-readme-stats.vercel.app/api/top-langs?username=MasahitoKumada&show_icons=true&locale=ja&layout=compact&theme=chartreuse-dark&count_private=true"
+          STATS_URL="https://github-readme-stats.vercel.app/api?username=MasahitoKumada&show_icons=true&locale=ja&theme=chartreuse-dark&count_private=true"
+          TROPHY_URL="https://github-profile-trophy.vercel.app/?username=MasahitoKumada&theme=juicyfresh&no-bg=true"
+          
+          # Generate README.md
           echo "# profile" > README.md
           echo "" >> README.md
-          echo '<img src="https://github-readme-stats.vercel.app/api/top-langs?username=MasahitoKumada&show_icons=true&locale=ja&layout=compact&theme=chartreuse-dark&count_private=true&token=${{ secrets.MANAGE_PROFILE }}" alt="ovi" />' >> README.md
+          echo "<img src=\"$LANGS_URL\" alt=\"Top Languages\" />" >> README.md
           echo "" >> README.md
-          echo '<img src="https://github-readme-stats.vercel.app/api?username=MasahitoKumada&show_icons=true&locale=ja&theme=chartreuse-dark&count_private=true&token=${{ secrets.MANAGE_PROFILE }}" alt="ovi" width="410" />' >> README.md
+          echo "<img src=\"$STATS_URL\" alt=\"GitHub Stats\" width=\"410\" />" >> README.md
           echo "" >> README.md
-          echo '<img src="https://github-profile-trophy.vercel.app/?username=MasahitoKumada&theme=juicyfresh&no-bg=true" />' >> README.md
+          echo "<img src=\"$TROPHY_URL\" alt=\"GitHub Trophy\" />" >> README.md
 
       - name: Commit changes
         run: |
