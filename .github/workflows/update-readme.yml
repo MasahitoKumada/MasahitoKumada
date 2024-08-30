@@ -27,9 +27,13 @@ jobs:
           # Generate README.md
           echo "# profile" > README.md
           echo "" >> README.md
-          echo "<img src=\"$LANGS_URL\" alt=\"Top Languages\" />" >> README.md
+          echo "<a href="https://github.com/anuraghazra/github-readme-stats">" >> README.md
+          echo "<img src=\"$LANGS_URL\" alt=\"Top Languages\" width=\"410\" align="left" />" >> README.md
+          echo "</a>" >> README.md
           echo "" >> README.md
-          echo "<img src=\"$STATS_URL\" alt=\"GitHub Stats\" width=\"410\" />" >> README.md
+          echo "<a href="https://github.com/anuraghazra/github-readme-stats">" >> README.md
+          echo "<img src=\"$STATS_URL\" alt=\"GitHub Stats\" width=\"410\" align="left" />" >> README.md
+          echo "</a>" >> README.md
           echo "" >> README.md
           echo "<img src=\"$TROPHY_URL\" alt=\"GitHub Trophy\" />" >> README.md
 
