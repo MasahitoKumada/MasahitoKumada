@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 16 * * 0'  # 毎週月曜日の日本時間1:00に実行（UTCでは16:00に相当）
+    - cron: '0 15 * * 0'  # 毎週月曜日の日本時間0:00に実行（UTCでは15:00に相当）
   workflow_dispatch:  # 手動実行を可能にするトリガー
 
 jobs:
