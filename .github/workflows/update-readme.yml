@@ -9,6 +9,17 @@ on:
   workflow_dispatch:  # 手動実行を可能にするトリガー
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.MANAGE_PROFILE }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
   update-readme:
     runs-on: ubuntu-latest
     steps:
