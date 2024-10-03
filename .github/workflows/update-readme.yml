@@ -9,18 +9,20 @@ on:
   workflow_dispatch:  # 手動実行を可能にするトリガー
 
 jobs:
-  build:
+  update-github-profile-summary-cards:
     runs-on: ubuntu-latest
-    name: generate
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: vn7n24fzkq/github-profile-summary-cards@release
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: generate_github-profile-summary-cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
           GITHUB_TOKEN: ${{ secrets.MANAGE_PROFILE }}
         with:
           USERNAME: ${{ github.repository_owner }}
+
   update-readme:
+    needs: update-github-profile-summary-cards
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
